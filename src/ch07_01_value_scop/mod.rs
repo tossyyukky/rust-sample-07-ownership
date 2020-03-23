@@ -6,6 +6,21 @@ pub struct Parent(pub usize, pub Child, pub Child); // Parentはusizeに加え�
 #[derive(Debug)]
 pub struct Child(pub usize);
 
+use std::ops::Drop;
+
+// Parent構造体にデストラクタを実装する
+impl Drop for Parent {
+    fn drop(&mut self) {
+        println!("Dropping {:?}", self);
+    }
+}
+// Child構造体にデストラクタを実装する
+impl Drop for Child {
+    fn drop(&mut self) {
+        println!("Dropping {:?}", self);
+    }
+}
+
 pub fn ch_main() {
     let p1 = Parent(1, Child(11), Child(12));
 
