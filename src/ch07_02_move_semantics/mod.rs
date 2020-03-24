@@ -9,7 +9,7 @@ fn f1(p: &Parent) {
 
 // Parentへの可変の参照を引数にとる
 fn f2(p: &mut Parent) {
-    p.0 *= -1;
+    p.0 *= 1;
 }
 
 pub fn main() {
